@@ -5,7 +5,11 @@ data:
   users.anonymous.enabled: 'true'
   ga.trackingid: 'UA-105170809-6'
   url: https://argocd.fc277073030.com
-#  configManagementPlugins: |
+  configManagementPlugins: |
+    - name: argocd-vault-plugin-kustomize
+        generate:
+          command: ["sh", "-c"]
+          args: ["kustomize build . | argocd-vault-plugin generate -"]
 #    - name: flux
 #      generate:
 #        command: [sh, -c]
