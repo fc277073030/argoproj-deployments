@@ -20,5 +20,8 @@ patchesJson6902:
     name: argocd-server
     version: v1
 
+patchesStrategicMerge:
+  - overlays/production/custom-tools.yaml
+
 namespace: argocd
 
