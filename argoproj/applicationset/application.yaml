@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: applicationset
+  namespace: argocd
+  labels:
+    app: applicationset
+spec:
+  destination:
+    name: ''
+    namespace: 'argocd'
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: install/applicationset
+    repoURL: 'https://gitlab.fc277073030.com/root/argoproj-deployments.git'
+    targetRevision: HEAD
+  project: infra
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=Non-cascading

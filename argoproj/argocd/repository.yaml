@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-argocd-repo
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: https://gitlab.fc277073030.com/root/argoproj-deployments.git
+  username: root
+  password: abcd@123
