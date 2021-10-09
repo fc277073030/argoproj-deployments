@@ -9,13 +9,14 @@ metadata:
 spec:
   tls:
   - hosts:
-    - argocd.fc277073030.com
+    - argocd.localhost
     secretName: argocd-server-tls
   rules:
-  - host: argocd.fc277073030.com
+  - host: argocd.localhost
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
           service:
             name: argocd-server
